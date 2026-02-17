@@ -35,6 +35,9 @@ export const IMG = {
   endingDorian:  "https://i.imgur.com/BGYfj1v.jpeg",
   endingHidden:  "https://i.imgur.com/2sVw6Qf.jpeg",
   endingTrue:    "https://i.imgur.com/GNP6Zap.jpeg",
+
+  // ... 기존 내용들
+  'intro_video': 'https://i.imgur.com/zcagrw6.mp4', 
 };
 
 // ─── 캐릭터 메타 ──────────────────────────────────────────────────────────
