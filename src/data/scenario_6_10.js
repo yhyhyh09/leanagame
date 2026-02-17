@@ -262,7 +262,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'kael', v: 20 },
               { type: 'flag', k: 'chosenRoute', v: 'kael' },
-              { type: 'goto', ch: 8, si: 0, char: 'kael' },
+              { type: 'goto', ch: 7, si: 3, char: 'kael' },
             ],
           },
           {
@@ -273,7 +273,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'lucian', v: 20 },
               { type: 'flag', k: 'chosenRoute', v: 'lucian' },
-              { type: 'goto', ch: 8, si: 5, char: 'lucian' },
+              { type: 'goto', ch: 7, si: 8, char: 'lucian' },
             ],
           },
           {
@@ -284,7 +284,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'arien', v: 20 },
               { type: 'flag', k: 'chosenRoute', v: 'arien' },
-              { type: 'goto', ch: 8, si: 9, char: 'arien' },
+              { type: 'goto', ch: 7, si: 12, char: 'arien' },
             ],
           },
           {
@@ -295,7 +295,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'dorian', v: 20 },
               { type: 'flag', k: 'chosenRoute', v: 'dorian' },
-              { type: 'goto', ch: 8, si: 13, char: 'dorian' },
+              { type: 'goto', ch: 7, si: 16, char: 'dorian' },
             ],
           },
           {
@@ -305,7 +305,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'flag', k: 'chosenRoute',   v: 'solo' },
               { type: 'flag', k: 'allAllies',     v: true },
-              { type: 'goto', ch: 8, si: 17, char: null },
+              { type: 'goto', ch: 7, si: 20, char: null },
             ],
           },
         ],
@@ -348,7 +348,7 @@ export const SCENARIO_6_10 = [
             text: '그의 손을 잡는다.  ✦ 카엘♥+20  →  엔딩 판정',
             acts: [
               { type: 'aff',  k: 'kael', v: 20 },
-              { type: 'goto', ch: 9, si: 0, char: 'kael' },
+              { type: 'goto', ch: 8, si: 0, char: 'kael' },
             ],
           },
           {
@@ -359,7 +359,7 @@ export const SCENARIO_6_10 = [
               { type: 'stat', k: 'courage', v: 15 },
               { type: 'aff',  k: 'kael',    v: 12 },
               { type: 'flag', k: 'kaelSecret', v: true },
-              { type: 'goto', ch: 9, si: 0, char: 'kael' },
+              { type: 'goto', ch: 8, si: 0, char: 'kael' },
             ],
           },
         ],
@@ -394,7 +394,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'lucian', v: 20 },
               { type: 'flag', k: 'lucianPact', v: true },
-              { type: 'goto', ch: 9, si: 5, char: 'lucian' },
+              { type: 'goto', ch: 8, si: 5, char: 'lucian' },
             ],
           },
           {
@@ -403,7 +403,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'stat', k: 'intel',  v: 15 },
               { type: 'aff',  k: 'lucian', v: 10 },
-              { type: 'goto', ch: 9, si: 5, char: 'lucian' },
+              { type: 'goto', ch: 8, si: 5, char: 'lucian' },
             ],
           },
         ],
@@ -438,7 +438,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'arien', v: 20 },
               { type: 'flag', k: 'arienContract', v: true },
-              { type: 'goto', ch: 9, si: 9, char: 'arien' },
+              { type: 'goto', ch: 8, si: 9, char: 'arien' },
             ],
           },
           {
@@ -449,7 +449,7 @@ export const SCENARIO_6_10 = [
               { type: 'aff',  k: 'arien', v: 15 },
               { type: 'flag', k: 'arienContract', v: true },
               { type: 'flag', k: 'arienTrust',    v: 3 },
-              { type: 'goto', ch: 9, si: 9, char: 'arien' },
+              { type: 'goto', ch: 8, si: 9, char: 'arien' },
             ],
           },
         ],
@@ -485,7 +485,7 @@ export const SCENARIO_6_10 = [
               { type: 'aff',  k: 'dorian', v: 20 },
               { type: 'flag', k: 'dorianAlly',   v: true },
               { type: 'flag', k: 'dorianSecret', v: true },
-              { type: 'goto', ch: 9, si: 13, char: 'dorian' },
+              { type: 'goto', ch: 8, si: 13, char: 'dorian' },
             ],
           },
           {
@@ -497,7 +497,7 @@ export const SCENARIO_6_10 = [
               { type: 'aff',  k: 'dorian',  v: 15 },
               { type: 'flag', k: 'dorianSecret', v: true },
               { type: 'flag', k: 'dorianAlly',   v: true },
-              { type: 'goto', ch: 9, si: 13, char: 'dorian' },
+              { type: 'goto', ch: 8, si: 13, char: 'dorian' },
             ],
           },
         ],
@@ -519,7 +519,7 @@ export const SCENARIO_6_10 = [
             text: '황제의 알현실로 향한다.  →  트루/히든 엔딩 판정',
             acts: [
               { type: 'flag', k: 'allAllies', v: true },
-              { type: 'goto', ch: 9, si: 17, char: null },
+              { type: 'goto', ch: 8, si: 17, char: null },
             ],
           },
         ],
@@ -536,7 +536,7 @@ export const SCENARIO_6_10 = [
     subtitle: '각자의 방식으로',
     bg: null, // 루트별 처리
     scenes: [
-      // ── 카엘 루트 (0~7) ────────────────────────────────────────────────
+      // ── 카엘 루트 (0~4) ────────────────────────────────────────────────
       {
         id: 'c9_kael_0',
         char: 'kael',
@@ -579,7 +579,7 @@ export const SCENARIO_6_10 = [
         ],
       },
 
-      // ── 루시안 루트 (8~15) ────────────────────────────────────────────
+      // ── 루시안 루트 (5~8) ─────────────────────────────────────────────
       {
         id: 'c9_lucian_0',
         char: 'lucian',
@@ -614,7 +614,7 @@ export const SCENARIO_6_10 = [
         ],
       },
 
-      // ── 아리엔 루트 (16~23) ───────────────────────────────────────────
+      // ── 아리엔 루트 (9~12) ────────────────────────────────────────────
       {
         id: 'c9_arien_0',
         char: 'arien',
@@ -649,7 +649,7 @@ export const SCENARIO_6_10 = [
         ],
       },
 
-      // ── 도리안 루트 (24~31) ───────────────────────────────────────────
+      // ── 도리안 루트 (13~16) ───────────────────────────────────────────
       {
         id: 'c9_dorian_0',
         char: 'dorian',
@@ -684,7 +684,7 @@ export const SCENARIO_6_10 = [
         ],
       },
 
-      // ── 솔로 루트 (32~) ───────────────────────────────────────────────
+      // ── 솔로 루트 (17~20) ─────────────────────────────────────────────
       {
         id: 'c9_solo_0',
         char: null,
