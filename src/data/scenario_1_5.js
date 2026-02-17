@@ -662,6 +662,23 @@ export const SCENARIO_1_5 = [
         char: null,
         text: '챕터 5가 끝났다. 파벌전은 가속되고 있고, 발로아 가문을 겨냥한 음모의 윤곽이 잡혀간다. 다음은 — 밀약서.',
       },
+      // scenario_1_5.js의 c5s9 뒤에 추가
+{
+  id: 'c5s10',
+  char: null,
+  text: "쪽지를 태우고 창밖을 보았다. 정원 너머로 네 개의 시선이 느껴지는 듯했다. 지금까지 내가 맺어온 인연들이 헛되지 않았음을 직감한다.",
+  choices: [
+    {
+      id: 'c5_shared_moment',
+      text: "모두에게 보이지 않는 신뢰를 보낸다. ✦ 전원 호감도+15",
+      acts: [
+        { type: 'affs', values: { kael: 15, lucian: 15, arien: 15, dorian: 15 } },
+        { type: 'toast', msg: '모든 인물과의 유대가 운명을 바꾸기 시작합니다.', color: '#f0d9b5' },
+        { type: 'next' },
+      ],
+    },
+  ],
+},
     ],
   },
 ];
