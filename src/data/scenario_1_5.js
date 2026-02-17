@@ -655,6 +655,19 @@ export const SCENARIO_1_5 = [
               { type: 'next' },
             ],
           },
+          {
+            id: 'c5_betray_kael',
+            text: '카엘의 접촉 사실을 황귀비 파벌에 몰래 밀고한다. ✦ 불명예+15  카엘♥-30',
+            condition: (fl) => fl.kaelMeeting,
+            acts: [
+              { type: 'stat', k: 'infamy',  v: 15 },
+              { type: 'aff',  k: 'kael',    v: -30 },
+              { type: 'flag', k: 'betrayedKael',   v: true },
+              { type: 'flag', k: 'betrayedAnyone', v: true },
+              { type: 'toast', msg: '카엘은 모른다. 하지만 황궁은 알게 될 것이다.', color: '#c0392b' },
+              { type: 'next' },
+            ],
+          },
         ],
       },
       {
