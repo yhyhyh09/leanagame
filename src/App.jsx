@@ -321,21 +321,26 @@ export default function App() {
       {/* 레아나 소형 고스트 (일반 내레이션 씬) */}
       {!activeChar && !isFullscreenLeana && (
   <div style={{
-    position:'absolute',bottom:dboxHeight+20,right:10, // 위치를 살짝 안쪽으로 조정
-    width:150, height:150, // 네모난(Square) 크기 지정
-    zIndex:5, opacity:.2, pointerEvents:'none',
-    overflow: 'hidden', // 영역 밖으로 나가는 이미지 숨김
-    // 마스크를 제거하거나, 상단 페이드만 남겨서 '네모난' 느낌을 살립니다.
-    maskImage:'linear-gradient(180deg, black 80%, transparent 100%)',
-    WebkitMaskImage:'linear-gradient(180deg, black 80%, transparent 100%)'
+    position:'absolute',
+    bottom: dboxHeight + 20, // 대화창 위로 살짝 올림
+    right: 20,               // 화면 안쪽으로 배치
+    width: 140,              // 네모난 크기 고정
+    height: 140,
+    zIndex: 5,
+    opacity: 0.25,           // 은은한 투명도
+    pointerEvents: 'none',
+    overflow: 'hidden',      // 영역 밖 이미지 숨김
+    borderRadius: '4px',     // 아주 살짝 둥근 네모
+    border: '1px solid rgba(201,149,106,0.2)', // 은은한 테두리 추가
   }}>
     <img 
       src={leanaImg} 
       alt="" 
       style={{
-        width:'100%', height:'100%', 
-        objectFit:'cover', // 가로가 길어도 중앙을 기준으로 네모나게 채움
-        display:'block'
+        width: '100%', 
+        height: '100%', 
+        objectFit: 'cover', // 네모난 틀에 꽉 차게 맞춤
+        display: 'block'
       }}
     />
   </div>
