@@ -371,13 +371,13 @@ export default function App() {
       )}
       <Petals/>
 
-      {/* 레아나 풀스크린 (특정 씬) */}
+            {/* 1. 레아나 풀스크린 (침실, 망루 등 중요 장면) */}
       {isFullscreenLeana && (
         <div style={{
           position:'absolute', top:0, left:0, right:0, bottom:0,
           zIndex:8, pointerEvents:'none',
         }}>
-          {/* 글로우 */}
+          {/* 후광 효과 */}
           <div style={{
             position:'absolute', bottom: dboxHeight, left:'50%', transform:'translateX(-50%)',
             width:'80%', height:200,
@@ -386,16 +386,17 @@ export default function App() {
           }}/>
           <img
             src={leanaImg}
-            alt="레아나"
+            alt="레아나 풀샷"
             style={{
               position:'absolute',
               bottom: dboxHeight,
-              left:'50%',
-              transform:'translateX(-50%)',
+              // 중앙 정렬 방식 수정 (애니메이션 충돌 방지)
+              left: 0, right: 0, margin: '0 auto', 
               height: `calc(100% - ${dboxHeight + 34}px)`,
               width:'auto',
               maxWidth:'100%',
-              objectFit:'contain',
+              // 이미지 전체가 보이도록 contain 적용
+              objectFit:'contain', 
               objectPosition:'center bottom',
               filter:'drop-shadow(0 0 28px rgba(201,149,106,.35))',
               animation:'charIn .8s cubic-bezier(.4,0,.2,1) forwards',
@@ -404,33 +405,35 @@ export default function App() {
         </div>
       )}
 
-      {/* 레아나 소형 고스트 (일반 내레이션 씬) */}
+      {/* 2. 레아나 소형 고스트 (일반 내레이션 씬) */}
       {!activeChar && !isFullscreenLeana && (
-  <div style={{
-    position:'absolute',
-    bottom: dboxHeight + 20, // 대화창 위로 살짝 올림
-    right: 20,               // 화면 안쪽으로 배치
-    width: 140,              // 네모난 크기 고정
-    height: 140,
-    zIndex: 5,
-    opacity: 0.25,           // 은은한 투명도
-    pointerEvents: 'none',
-    overflow: 'hidden',      // 영역 밖 이미지 숨김
-    borderRadius: '4px',     // 아주 살짝 둥근 네모
-    border: '1px solid rgba(201,149,106,0.2)', // 은은한 테두리 추가
-  }}>
-    <img 
-      src={leanaImg} 
-      alt="" 
-      style={{
-        width: '100%', 
-        height: '100%', 
-        objectFit: 'cover', // 네모난 틀에 꽉 차게 맞춤
-        display: 'block'
-      }}
-    />
-  </div>
-)}
+        <div style={{
+          position:'absolute', 
+          bottom: dboxHeight + 20, 
+          right: 20, 
+          width: 140, 
+          height: 140, 
+          zIndex: 5, 
+          opacity: 0.25, 
+          pointerEvents: 'none', 
+          overflow: 'hidden',
+          borderRadius: '4px',
+          border: '1px solid rgba(201,149,106,0.2)',
+          background: 'rgba(6,4,15,0.4)' // 이미지가 작을 때를 대비한 배경
+        }}>
+          <img 
+            src={leanaImg} 
+            alt="레아나 고스트" 
+            style={{
+              width: '100%', 
+              height: '100%', 
+              // 네모칸 안에서 전체가 보이도록 contain 적용
+              objectFit: 'contain', 
+              display: 'block'
+            }}
+          />
+        </div>
+      )}
 
       {puzzle && (
         <PuzzleOverlay
