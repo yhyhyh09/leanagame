@@ -273,7 +273,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'lucian', v: 20 },
               { type: 'flag', k: 'chosenRoute', v: 'lucian' },
-              { type: 'goto', ch: 8, si: 8, char: 'lucian' },
+              { type: 'goto', ch: 8, si: 5, char: 'lucian' },
             ],
           },
           {
@@ -284,7 +284,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'arien', v: 20 },
               { type: 'flag', k: 'chosenRoute', v: 'arien' },
-              { type: 'goto', ch: 8, si: 16, char: 'arien' },
+              { type: 'goto', ch: 8, si: 9, char: 'arien' },
             ],
           },
           {
@@ -295,7 +295,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'dorian', v: 20 },
               { type: 'flag', k: 'chosenRoute', v: 'dorian' },
-              { type: 'goto', ch: 8, si: 24, char: 'dorian' },
+              { type: 'goto', ch: 8, si: 13, char: 'dorian' },
             ],
           },
           {
@@ -305,7 +305,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'flag', k: 'chosenRoute',   v: 'solo' },
               { type: 'flag', k: 'allAllies',     v: true },
-              { type: 'goto', ch: 8, si: 32, char: null },
+              { type: 'goto', ch: 8, si: 17, char: null },
             ],
           },
         ],
