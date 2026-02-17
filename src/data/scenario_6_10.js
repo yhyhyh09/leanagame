@@ -201,6 +201,18 @@ export const SCENARIO_6_10 = [
           ? '탈출에 성공했다. 하지만 이제 공식적인 지명수배 대상이다. 빠르게 움직여야 한다.'
           : '밤이 지나면 재판이 시작된다. 지금이 마지막 기회다. 누구에게 손을 내밀 것인가.',
       },
+      // scenario_6_10.js의 c7s4와 c7s5 사이에 추가
+{
+  id: 'c7_support_event',
+  char: null,
+  condition: (fl) => fl.evidenceCount >= 2,
+  text: "창살 틈으로 작은 새 한 마리가 날아와 쪽지를 떨어뜨리고 갔다. '포기하지 마십시오. 밖의 일은 저희가 준비하고 있습니다.' 짧지만 묵직한 네 명의 필체가 섞여 있다.",
+  acts: [
+    { type: 'affs', values: { kael: 10, lucian: 10, arien: 10, dorian: 10 } },
+    { type: 'toast', msg: '당신의 행보가 동맹들의 마음을 움직였습니다. (호감도 상승)', color: '#c9956a' },
+    { type: 'next' },
+  ],
+},
       {
         id: 'c7s5',
         char: null,
