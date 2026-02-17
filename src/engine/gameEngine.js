@@ -173,23 +173,23 @@ export function calcEnding(stats, affinity, flags) {
   const st = stats;
   const fl = flags;
 
-  // 히든 엔딩: 모든 호감도 55+, 악명 25 미만, 지성 80+
-  const allHigh = Object.values(af).every(v => v >= 55);
+  // 히든 엔딩: 모든 호감도 70+, 악명 25 미만, 지성 80+
+  const allHigh = Object.values(af).every(v => v >= 70);
   if (allHigh && st.intel >= 80 && st.infamy < 25 && fl.puzzleSolved) {
     return 'hidden';
   }
 
-  // 트루 엔딩: 밀약서 + 퍼즐 + 증거 3+ + 배신 없음
-  if (fl.rumorSource === 'document' && fl.puzzleSolved && fl.evidenceCount >= 3 && !fl.betrayedAnyone) {
+  // 트루 엔딩: 밀약서 + 퍼즐 + allAllies + 배신 없음
+  if (fl.rumorSource === 'document' && fl.puzzleSolved && fl.allAllies && !fl.betrayedAnyone) {
     return 'true';
   }
 
   // 루트별 해피 엔딩
   const route = fl.chosenRoute;
-  if (route === 'kael'   && af.kael   >= 60 && fl.kaelDebt   && !fl.betrayedKael) return 'kael_happy';
-  if (route === 'lucian' && af.lucian >= 65 && fl.lucianPact)                     return 'lucian_happy';
-  if (route === 'arien'  && af.arien  >= 65 && st.magic >= 50)                    return 'arien_happy';
-  if (route === 'dorian' && af.dorian >= 45 && fl.dorianSecret)                   return 'dorian_happy';
+  if (route === 'kael'   && af.kael   >= 75 && fl.kaelDebt   && !fl.betrayedKael)                           return 'kael_happy';
+  if (route === 'lucian' && af.lucian >= 75 && fl.lucianPact)                                               return 'lucian_happy';
+  if (route === 'arien'  && af.arien  >= 75 && fl.arienProof === 'power' && st.magic >= 60)                 return 'arien_happy';
+  if (route === 'dorian' && af.dorian >= 75 && fl.dorianGuard === 'confronted' && fl.dorianSecret)          return 'dorian_happy';
 
   // 배드 엔딩 2단계
   const totalAff = Object.values(af).reduce((s, v) => s + v, 0);
