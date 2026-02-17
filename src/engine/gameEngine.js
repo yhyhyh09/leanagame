@@ -207,8 +207,12 @@ export function resolveText(scene, flags, stats, affinity) {
 // ─── 조건 체크 유틸 ──────────────────────────────────────────────────────
 export function checkCondition(cond, flags, stats, affinity) {
   if (!cond) return true;
+  
+  // 함수 형태로 전달된 경우 직접 실행하여 결과 반환
+  if (typeof cond === 'function') return cond(flags, stats, affinity);
+  
   try {
-    // eslint-disable-next-line no-new-func
+    // 문자열 형태로 전달된 경우 기존 방식 유지
     return new Function('flags', 'stats', 'affinity', `return (${cond})`)(flags, stats, affinity);
   } catch {
     return true;
