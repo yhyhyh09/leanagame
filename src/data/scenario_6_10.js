@@ -394,7 +394,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'lucian', v: 20 },
               { type: 'flag', k: 'lucianPact', v: true },
-              { type: 'goto', ch: 9, si: 8, char: 'lucian' },
+              { type: 'goto', ch: 9, si: 5, char: 'lucian' },
             ],
           },
           {
@@ -403,7 +403,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'stat', k: 'intel',  v: 15 },
               { type: 'aff',  k: 'lucian', v: 10 },
-              { type: 'goto', ch: 9, si: 8, char: 'lucian' },
+              { type: 'goto', ch: 9, si: 5, char: 'lucian' },
             ],
           },
         ],
@@ -438,7 +438,7 @@ export const SCENARIO_6_10 = [
             acts: [
               { type: 'aff',  k: 'arien', v: 20 },
               { type: 'flag', k: 'arienContract', v: true },
-              { type: 'goto', ch: 9, si: 16, char: 'arien' },
+              { type: 'goto', ch: 9, si: 9, char: 'arien' },
             ],
           },
           {
@@ -449,7 +449,7 @@ export const SCENARIO_6_10 = [
               { type: 'aff',  k: 'arien', v: 15 },
               { type: 'flag', k: 'arienContract', v: true },
               { type: 'flag', k: 'arienTrust',    v: 3 },
-              { type: 'goto', ch: 9, si: 16, char: 'arien' },
+              { type: 'goto', ch: 9, si: 9, char: 'arien' },
             ],
           },
         ],
@@ -485,7 +485,7 @@ export const SCENARIO_6_10 = [
               { type: 'aff',  k: 'dorian', v: 20 },
               { type: 'flag', k: 'dorianAlly',   v: true },
               { type: 'flag', k: 'dorianSecret', v: true },
-              { type: 'goto', ch: 9, si: 24, char: 'dorian' },
+              { type: 'goto', ch: 9, si: 13, char: 'dorian' },
             ],
           },
           {
@@ -497,7 +497,7 @@ export const SCENARIO_6_10 = [
               { type: 'aff',  k: 'dorian',  v: 15 },
               { type: 'flag', k: 'dorianSecret', v: true },
               { type: 'flag', k: 'dorianAlly',   v: true },
-              { type: 'goto', ch: 9, si: 24, char: 'dorian' },
+              { type: 'goto', ch: 9, si: 13, char: 'dorian' },
             ],
           },
         ],
@@ -519,7 +519,7 @@ export const SCENARIO_6_10 = [
             text: '황제의 알현실로 향한다.  →  트루/히든 엔딩 판정',
             acts: [
               { type: 'flag', k: 'allAllies', v: true },
-              { type: 'goto', ch: 9, si: 32, char: null },
+              { type: 'goto', ch: 9, si: 17, char: null },
             ],
           },
         ],
