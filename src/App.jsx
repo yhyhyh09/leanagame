@@ -161,19 +161,7 @@ function TitleScreen({ onStart }) {
           모든 선택이 기억된다.<br/>
           목표는 오직 하나 — 생존.
         </p>
-
-        <p style={{
-          fontSize: 9,
-          color: 'rgba(201,149,106,.3)',
-          fontFamily: 'Cinzel',
-          letterSpacing: '.15em',
-          marginBottom: 35,
-          animation: anim ? 'fadeUp 1s .7s ease-out forwards' : 'none',
-          opacity: 0
-        }}>
-          10 CHAPTERS  ·  8 ENDINGS  ·  FULL BRANCHING
-        </p>
-
+        
         {/* 시작 버튼 */}
         <button 
           className="btn-start" 
