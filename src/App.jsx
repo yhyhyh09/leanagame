@@ -291,10 +291,26 @@ export default function App() {
 
       {/* 레아나 소형 고스트 (일반 내레이션 씬) */}
       {!activeChar && !isFullscreenLeana && (
-        <div style={{position:'absolute',bottom:dboxHeight+10,right:-25,width:185,zIndex:5,opacity:.15,pointerEvents:'none',maskImage:'linear-gradient(270deg,transparent 0%,black 35%,black 70%,transparent 100%)',WebkitMaskImage:'linear-gradient(270deg,transparent 0%,black 35%,black 70%,transparent 100%)'}}>
-          <img src={leanaImg} alt="" style={{width:'100%',display:'block'}}/>
-        </div>
-      )}
+  <div style={{
+    position:'absolute',bottom:dboxHeight+20,right:10, // 위치를 살짝 안쪽으로 조정
+    width:150, height:150, // 네모난(Square) 크기 지정
+    zIndex:5, opacity:.2, pointerEvents:'none',
+    overflow: 'hidden', // 영역 밖으로 나가는 이미지 숨김
+    // 마스크를 제거하거나, 상단 페이드만 남겨서 '네모난' 느낌을 살립니다.
+    maskImage:'linear-gradient(180deg, black 80%, transparent 100%)',
+    WebkitMaskImage:'linear-gradient(180deg, black 80%, transparent 100%)'
+  }}>
+    <img 
+      src={leanaImg} 
+      alt="" 
+      style={{
+        width:'100%', height:'100%', 
+        objectFit:'cover', // 가로가 길어도 중앙을 기준으로 네모나게 채움
+        display:'block'
+      }}
+    />
+  </div>
+)}
 
       {puzzle && (
         <PuzzleOverlay
