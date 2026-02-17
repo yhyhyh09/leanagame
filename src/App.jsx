@@ -66,8 +66,9 @@ function TitleScreen({ onStart }) {
         playsInline
         style={{
           position: 'absolute',
-          top: 0,
-          left: 0,
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%) scale(0.85)', // 85% 크기로 축소
           width: '100%',
           height: '100%',
           objectFit: 'contain',
