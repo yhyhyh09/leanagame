@@ -51,55 +51,141 @@ function WardrobeScreen({ onSelect }) {
 // ─── 타이틀 ───────────────────────────────────────────────────────────────
 function TitleScreen({ onStart }) {
   const [anim, setAnim] = useState(false);
-  useEffect(() => { setTimeout(() => setAnim(true), 350); }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => setAnim(true), 350);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className="gr" style={{minHeight:700, position: 'relative', overflow: 'hidden'}}>
+    <div className="gr" style={{
+      minHeight: 700,
+      display: 'flex',
+      flexDirection: 'column', // 위아래로 배치
+      background: '#06040f',
+      overflowY: 'auto' // 내용이 길어질 경우 스크롤 허용
+    }}>
       <style>{GLOBAL_CSS}</style>
       
-      {/* 1. 배경 그라데이션 대신 비디오를 넣습니다 */}
-      <video 
-        src={IMG.intro_video} 
-        autoPlay 
-        loop 
-        muted 
-        playsInline
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%) scale(0.85)', // 85% 크기로 축소
-          width: '100%',
-          height: '100%',
-          objectFit: 'contain',
-          zIndex: 0
-        }}
-      />
-
-      {/* 2. 비디오 위에 살짝 어두운 덮개를 씌워 글자를 잘 보이게 합니다 */}
+      {/* 1. 상단 비디오 영역 */}
       <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'rgba(6,4,15,0.4)', // 숫자를 높일수록 더 어두워집니다
-        zIndex: 1
-      }}/>
+        width: '100%',
+        height: '320px', // 비디오 높이 고정 (조정 가능)
+        position: 'relative',
+        background: '#000',
+        flexShrink: 0,
+        zIndex: 2
+      }}>
+        <video 
+          src={IMG.intro_video} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain' // 비디오 전체가 보이도록 설정
+          }}
+        />
+        {/* 비디오 하단 경계선 */}
+        <div className="gold-line" style={{ position: 'absolute', bottom: 0, width: '100%', opacity: 0.5 }} />
+      </div>
 
-      <Petals/><Corners/>
+      {/* 배경 장식 */}
+      <Petals /><Corners />
 
-      {/* 기존 라인 장식들 (zIndex를 조절해 비디오 위에 오게 합니다) */}
-      <div style={{position:'absolute',left:36,top:0,bottom:0,width:1,background:'linear-gradient(180deg,transparent,rgba(201,149,106,.25) 30%,rgba(201,149,106,.25) 70%,transparent)',zIndex:3}}/>
-      <div style={{position:'absolute',right:36,top:0,bottom:0,width:1,background:'linear-gradient(180deg,transparent,rgba(201,149,106,.25) 30%,rgba(201,149,106,.25) 70%,transparent)',zIndex:3}}/>
+      {/* 2. 하단 텍스트 및 버튼 영역 */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '30px 40px 50px',
+        textAlign: 'center',
+        zIndex: 10
+      }}>
+        {/* 왕관 아이콘 */}
+        <div style={{
+          fontSize: 32, 
+          marginBottom: 15, 
+          animation: 'crownF 3s ease-in-out infinite',
+          filter: 'drop-shadow(0 0 15px rgba(201,149,106,.8))'
+        }}>
+          ♛
+        </div>
+        
+        <div className="gold-line" style={{ width: 80, marginBottom: 20, opacity: 0.3 }} />
 
-      {/* 중앙 콘텐츠 영역 */}
-      <div style={{position:'relative',zIndex:10,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:700,padding:'40px 50px',textAlign:'center'}}>
-        <div style={{fontSize:36,marginBottom:18,animation:'crownF 3s ease-in-out infinite',filter:'drop-shadow(0 0 18px rgba(201,149,106,.85))'}}>♛</div>
-        <div className="gold-line" style={{width:110,marginBottom:22}}/>
-        <h1 style={{fontFamily:'Cinzel',fontWeight:700,fontSize:30,lineHeight:1.38,color:'#f0d9b5',letterSpacing:'.08em',textShadow:'0 0 40px rgba(201,149,106,.5)',animation:anim?'titleR 1.2s ease-out forwards':'none',opacity:0,marginBottom:8}}>레아나의<br/>생존 법칙</h1>
-        <p style={{fontFamily:'Cormorant Garamond',fontStyle:'italic',fontSize:13,color:'rgba(201,149,106,.62)',letterSpacing:'.05em',marginBottom:6,animation:anim?'fadeUp 1.2s .4s ease-out forwards':'none',opacity:0}}>Lex Survivalis Leana</p>
-        <div className="gold-line" style={{width:110,marginBottom:34}}/>
-        <p style={{fontSize:13,lineHeight:1.95,color:'rgba(240,230,211,.52)',marginBottom:20,animation:anim?'fadeUp 1s .6s ease-out forwards':'none',opacity:0}}>악녀에 빙의했다.<br/>모든 선택이 기억된다.<br/>목표는 오직 하나 — 생존.</p>
-        <p style={{fontSize:10,color:'rgba(201,149,106,.35)',fontFamily:'Cinzel',letterSpacing:'.15em',marginBottom:36,animation:anim?'fadeUp 1s .7s ease-out forwards':'none',opacity:0}}>10 CHAPTERS  ·  8 ENDINGS  ·  FULL BRANCHING</p>
-        <button className="btn-start" onClick={onStart} style={{animation:anim?'fadeUp 1s .9s ease-out forwards':'none',opacity:0}}>운명을 시작하다</button>
+        {/* 타이틀 */}
+        <h1 style={{
+          fontFamily: 'Cinzel',
+          fontWeight: 700,
+          fontSize: 28,
+          lineHeight: 1.3,
+          color: '#f0d9b5',
+          letterSpacing: '.08em',
+          textShadow: '0 0 30px rgba(201,149,106,.4)',
+          animation: anim ? 'titleR 1.2s ease-out forwards' : 'none',
+          opacity: 0,
+          marginBottom: 8
+        }}>
+          레아나의<br/>생존 법칙
+        </h1>
+
+        <p style={{
+          fontFamily: 'Cormorant Garamond',
+          fontStyle: 'italic',
+          fontSize: 12,
+          color: 'rgba(201,149,106,.6)',
+          letterSpacing: '.05em',
+          marginBottom: 20,
+          animation: anim ? 'fadeUp 1.2s .4s ease-out forwards' : 'none',
+          opacity: 0
+        }}>
+          Lex Survivalis Leana
+        </p>
+
+        <div className="gold-line" style={{ width: 80, marginBottom: 25, opacity: 0.3 }} />
+
+        {/* 설명 문구 */}
+        <p style={{
+          fontSize: 12,
+          lineHeight: 1.8,
+          color: 'rgba(240,230,211,.6)',
+          marginBottom: 30,
+          animation: anim ? 'fadeUp 1s .6s ease-out forwards' : 'none',
+          opacity: 0
+        }}>
+          악녀에 빙의했다.<br/>
+          모든 선택이 기억된다.<br/>
+          목표는 오직 하나 — 생존.
+        </p>
+
+        <p style={{
+          fontSize: 9,
+          color: 'rgba(201,149,106,.3)',
+          fontFamily: 'Cinzel',
+          letterSpacing: '.15em',
+          marginBottom: 35,
+          animation: anim ? 'fadeUp 1s .7s ease-out forwards' : 'none',
+          opacity: 0
+        }}>
+          10 CHAPTERS  ·  8 ENDINGS  ·  FULL BRANCHING
+        </p>
+
+        {/* 시작 버튼 */}
+        <button 
+          className="btn-start" 
+          onClick={onStart} 
+          style={{ 
+            animation: anim ? 'fadeUp 1s .9s ease-out forwards' : 'none', 
+            opacity: 0,
+            padding: '12px 40px'
+          }}
+        >
+          운명을 시작하다
+        </button>
       </div>
     </div>
   );
