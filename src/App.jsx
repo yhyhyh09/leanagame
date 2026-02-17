@@ -52,16 +52,44 @@ function WardrobeScreen({ onSelect }) {
 function TitleScreen({ onStart }) {
   const [anim, setAnim] = useState(false);
   useEffect(() => { setTimeout(() => setAnim(true), 350); }, []);
+
   return (
-    <div className="gr" style={{minHeight:700}}>
+    <div className="gr" style={{minHeight:700, position: 'relative', overflow: 'hidden'}}>
       <style>{GLOBAL_CSS}</style>
-      <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse at 20% 30%,rgba(139,26,58,.2) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(90,30,120,.18) 0%,transparent 50%),#06040f'}}/>
+      
+      {/* 1. 배경 그라데이션 대신 비디오를 넣습니다 */}
+      <video 
+        src={IMG.intro_video} 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0
+        }}
+      />
+
+      {/* 2. 비디오 위에 살짝 어두운 덮개를 씌워 글자를 잘 보이게 합니다 */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'rgba(6,4,15,0.4)', // 숫자를 높일수록 더 어두워집니다
+        zIndex: 1
+      }}/>
+
       <Petals/><Corners/>
+
+      {/* 기존 라인 장식들 (zIndex를 조절해 비디오 위에 오게 합니다) */}
       <div style={{position:'absolute',left:36,top:0,bottom:0,width:1,background:'linear-gradient(180deg,transparent,rgba(201,149,106,.25) 30%,rgba(201,149,106,.25) 70%,transparent)',zIndex:3}}/>
       <div style={{position:'absolute',right:36,top:0,bottom:0,width:1,background:'linear-gradient(180deg,transparent,rgba(201,149,106,.25) 30%,rgba(201,149,106,.25) 70%,transparent)',zIndex:3}}/>
-      <div style={{position:'absolute',bottom:0,left:'50%',transform:'translateX(-50%)',width:280,zIndex:5,opacity:.18,pointerEvents:'none',maskImage:'linear-gradient(180deg,black 30%,transparent 100%)',WebkitMaskImage:'linear-gradient(180deg,black 30%,transparent 100%)'}}>
-        <img src={IMG.leana} alt="" style={{width:'100%',display:'block'}}/>
-      </div>
+
+      {/* 중앙 콘텐츠 영역 */}
       <div style={{position:'relative',zIndex:10,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:700,padding:'40px 50px',textAlign:'center'}}>
         <div style={{fontSize:36,marginBottom:18,animation:'crownF 3s ease-in-out infinite',filter:'drop-shadow(0 0 18px rgba(201,149,106,.85))'}}>♛</div>
         <div className="gold-line" style={{width:110,marginBottom:22}}/>
@@ -69,7 +97,7 @@ function TitleScreen({ onStart }) {
         <p style={{fontFamily:'Cormorant Garamond',fontStyle:'italic',fontSize:13,color:'rgba(201,149,106,.62)',letterSpacing:'.05em',marginBottom:6,animation:anim?'fadeUp 1.2s .4s ease-out forwards':'none',opacity:0}}>Lex Survivalis Leana</p>
         <div className="gold-line" style={{width:110,marginBottom:34}}/>
         <p style={{fontSize:13,lineHeight:1.95,color:'rgba(240,230,211,.52)',marginBottom:20,animation:anim?'fadeUp 1s .6s ease-out forwards':'none',opacity:0}}>악녀에 빙의했다.<br/>모든 선택이 기억된다.<br/>목표는 오직 하나 — 생존.</p>
-        <p style={{fontSize:10,color:'rgba(201,149,106,.35)',fontFamily:'Cinzel',letterSpacing:'.15em',marginBottom:36,animation:anim?'fadeUp 1s .7s ease-out forwards':'none',opacity:0}}>10 CHAPTERS  ·  8 ENDINGS  ·  FULL BRANCHING</p>
+        <p style={{fontSize:10,color:'rgba(201,149,106,.35)',fontFamily:'Cinzel',letterSpacing:'.15em',marginBottom:36,animation:anim?'fadeUp 1s .7s ease-out forwards':'none',opacity:0}}>10 CHAPTERS  ·  8 ENDINGS  ·  FULL BRANCHING</p>
         <button className="btn-start" onClick={onStart} style={{animation:anim?'fadeUp 1s .9s ease-out forwards':'none',opacity:0}}>운명을 시작하다</button>
       </div>
     </div>
